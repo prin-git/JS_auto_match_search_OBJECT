@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      var search_terms = [
+        {
+          value: "princy <abc@bvvv.com>",
+          label: "princy <abc@bvvv.com>"
+        },
+        {
+          value: "abc d <>",
+          label: "abc d <>"
+        },
+        {
+          value: "p1 p <>",
+          label: "p1 p <>"
+        },
+        {
+          value: "y67u76 6yu <>",
+          label: "y67u76 6yu <>"
+        },
+        {
+          value: "aqweqeqw wdew <>",
+          label: "aqweqeqw wdew <>"
+        },
+        {
+          value: "wwwwwww wwwww <>",
+          label: "wwwwwww wwwww <>"
+        },
+        {
+          value: "dfcvd vcvcdv <>",
+          label: "dfcvd vcvcdv <>"
+        },
+        {
+          value: "ggggggggggggggggggggg ggggg <>",
+          label: "ggggggggggggggggggggg ggggg <>"
+        },
+        {
+          value: "dsd sdsd <>",
+          label: "dsd sdsd <>"
+        },
+        {
+          value: "newCust1 abc <>",
+          label: "newCust1 abc <>"
+        },
+        {
+          value: "uuuuutr rttr <>",
+          label: "uuuuutr rttr <>"
+        },
+        {
+          value: "n12 2 <>",
+          label: "n12 2 <>"
+        },
+        {
+          value: "a a <>",
+          label: "a a <>"
+        },
+        {
+          value: "tyht uyuyuy <>",
+          label: "tyht uyuyuy <>"
+        },
+        {
+          value: "new cust1 abc <>",
+          label: "new cust1 abc <>"
+        },
+        {
+          value: "peter p <p**@gmail.com>",
+          label: "peter p <p**@gmail.com>"
+        },
+        {
+          value: "asha p <>",
+          label: "asha p <>"
+        },
+        {
+          value: "ghtfh gfhfhg <>",
+          label: "ghtfh gfhfhg <>"
+        },
+        {
+          value: "new1 11 <>",
+          label: "new1 11 <>"
+        },
+        {
+          value: "9 9 <>",
+          label: "9 9 <>"
+        },
+        {
+          value: "o9 9 <>",
+          label: "o9 9 <>"
+        },
+        {
+          value: "o;poip op90 <>",
+          label: "o;poip op90 <>"
+        },
+        {
+          value: "o; o;poi <>",
+          label: "o; o;poi <>"
+        },
+        {
+          value: "uioliol;o ioioi <>",
+          label: "uioliol;o ioioi <>"
+        }
+      ];
+      function autocompleteMatch(input) {
+        if (input === "") {
+          return [];
+        }
+        var reg = new RegExp(input);
+
+        let list = search_terms.filter((term) => term.label.match(reg));
+        return list;
+      }
+
+      function showResults(val) {
+        let res = document.getElementById("result");
+        res.innerHTML = "";
+        let list = "";
+        let terms = autocompleteMatch(val);
+        for (let i = 0; i < terms.length; i++) {
+          list += "<li>" + terms[i].label + "</li>";
+        }
+        res.innerHTML = "<ul>" + list + "</ul>";
+      }
+    </script>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div id="app"></div>
+
+    <form autocomplete="off">
+      <input
+        type="text"
+        name="q"
+        id="q"
+        <span
+        style="font-weight: 400;"
+        onKeyUp="showResults(this.value)"
+      />
+      <div id="result"></div>
+    </form>
+
+    <!-- <script src="src/index.js"></script> -->
+  </body>
+</html>
